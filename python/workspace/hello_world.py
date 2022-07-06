@@ -70,3 +70,57 @@
 # print(type(24))
 # print(type(3.9))
 # print(type(3j))
+
+#conversions
+
+# int_to_float = float(35)
+# float_to_int = int(44.2)
+# int_to_complex = complex(35)
+# print(int_to_float)
+# print(float_to_int)
+# print(int_to_complex)
+# print(type(int_to_float))
+# print(type(float_to_int))
+# print(type(int_to_complex))
+
+# import random
+# print(random.randint(2,5)) # provides a random number between 2 and 5
+
+# #string concatenation way one
+# name = "Zen"
+# print("My name is", name)
+
+# #string concatenation way two
+# name = "Zen"
+# print("My name is " + name)
+
+# #type casting or explicit type conversion
+
+# #type casting
+# print('hello' + 42)
+# print('hello' + str(42))
+
+# string interpolation: here we can disguise the user_val as an integer to be able to concatenate them.
+# total = 30
+# user_val = "13"
+# # total = total + user_val
+# total = total + int(user_val)
+
+# print(total)
+
+#f -strings
+first_name = "dude"
+last_name = "bro"
+age = 36
+print(f"my name is {first_name} {last_name} and I am {age} years old.")
+
+#here's another way to do this using string.format
+first_name = "Zen"
+last_name = "Coder"
+age = 27
+print("My name is {} {} and I am {} years old.".format(first_name, last_name, age))
+# output: My name is Zen Coder and I am 27 years old.
+print("My name is {} {} and I am {} years old.".format(age, first_name, last_name))
+# output: My name is 27 Zen and I am Coder years old.
+
+

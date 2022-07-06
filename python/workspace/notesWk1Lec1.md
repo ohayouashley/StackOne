@@ -228,5 +228,64 @@ print(type(24))
 print(type(3.9))
 print(type(3j))
 
-::
+::conversion::
+
+all python objecs have data type methods we can use to convert number types from one to another.
+int_to_float = float(35)
+float_to_int = int(44.2)
+int_to_complex = complex(35)
+print(int_to_float)
+print(float_to_int)
+print(int_to_complex)
+print(type(int_to_float))
+print(type(float_to_int))
+print(type(int_to_complex))
+
+::random number::
+python does not have a built in random number generator, use the random module instead.
+import random
+print(random.randint(2,5)) # provides a random number between 2 and 5
+
+
+::STRINGS::
+**string literals:  print("this is a sample")
+
+::concatenating strings and variables with print::
+
+- first way is to add a comma after the string followed by the variable. Note that the comma 
+is outside of the closign quotation mark of the string. Print() punction inserts a space between elements separated by a comma.
+name = "Zen"
+print("My name is", name)
+the second way is by concatenating the contents into a new string with the help of +
+name = "Zen"
+print("My name is " + name)
+*try concatenating with an integer both of these ways. see what happens
+
+::type casting or explicit type conversion::
+if you want to change a value's data tyhpe from one type to another, python doesn't know how to add a string and a number
+but it can add two strings together so if we can cast the number as a string then it will be able toadd the two
+values together:
+print("Hello" + 42)			# output: TypeError
+print("Hello" + str(42))		# output: Hello 42
+
+::f - strings (literal string interpolation)
+Python 3.6 introduced f-stirngs for string interpolation. To consturct a f-string, place an f
+right before the opening quotation. Then within the string, place any variables within curly brackets.
+first_name: "dude"
+last_name: "bro"
+age = 36
+print(f"my name is {first_name} {last_name} and I am {age} years old.")
+
+::here's another way to do that using string.format
+first_name = "Zen"
+last_name = "Coder"
+age = 27
+print("My name is {} {} and I am {} years old.".format(first_name, last_name, age))
+# output: My name is Zen Coder and I am 27 years old.
+print("My name is {} {} and I am {} years old.".format(age, first_name, last_name))
+# output: My name is 27 Zen and I am Coder years old.
+
+
+
+
 >
