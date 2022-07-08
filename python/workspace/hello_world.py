@@ -108,19 +108,36 @@
 
 # print(total)
 
-#f -strings
-first_name = "dude"
-last_name = "bro"
-age = 36
-print(f"my name is {first_name} {last_name} and I am {age} years old.")
+# f -strings
+# first_name = "dude"
+# last_name = "bro"
+# age = 36
+# print(f"my name is {first_name} {last_name} and I am {age} years old.")
 
-#here's another way to do this using string.format
-first_name = "Zen"
-last_name = "Coder"
-age = 27
-print("My name is {} {} and I am {} years old.".format(first_name, last_name, age))
-# output: My name is Zen Coder and I am 27 years old.
-print("My name is {} {} and I am {} years old.".format(age, first_name, last_name))
+# #here's another way to do this using string.format
+# first_name = "Zen"
+# last_name = "Coder"
+# age = 27
+# print("My name is {} {} and I am {} years old.".format(first_name, last_name, age))
+# # output: My name is Zen Coder and I am 27 years old.
+# print("My name is {} {} and I am {} years old.".format(age, first_name, last_name))
 # output: My name is 27 Zen and I am Coder years old.
 
+
+#PRACTICE
+
+# dinner = 54
+# breakfast = "eggs"
+
+# print("I want {} for dinner and {} for breakfast".format(dinner, breakfast))
+
+# print("hi" + str(43))
+
+# first_name = "ashley"
+# last_name = "chase"
+# age = 30
+# print(f"my name is {first_name} {last_name} and I am {age} years old.")
+
+x = "hello world"
+print(x.title())
 
