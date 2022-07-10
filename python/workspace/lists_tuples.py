@@ -146,3 +146,48 @@ long_list = [1,2,3,4,45,5,6,6,7,7,78,8,7,6,5,5,5,4,4,4,4,3]
 #all() - will return if all items in an iterable are true, otherwise will return false.
 # print(all(long_list))
 
+# :: LIST SPECIFIC METHODS - DOT NOTATION::"
+# 
+# list.append(value) - appends a values to the end of the list "
+# list.pop(index) removes a value at give position. If no parameter is passed it will remove the last value in the list
+# list.index(value) - return the index (position) of given value if it exists in the list and raises error if it does not exist
+# list.reverse() - reverses the order of the element in place
+# list.sort() - sorts the items in order of least to greatest, or alphabetically for strings, in place
+# ::**in place means it changes that same array, instead of returning a new array" 
+
+#CHALLENGE B
+some_nums = [44,56,2,3,12,19,6]
+# print("Get started by writing your own code!")
+#print the length of the list
+# print(len(some_nums)) #return 7
+
+#use another python built-in function and print the result
+# print(min(some_nums)) returns 2
+#remove an item from the list.
+# print(some_nums.pop(3)) #return 3
+# print(some_nums) # returns the array without 3
+
+#utilize a method from the documentation and print the result
+# print(sorted(some_nums))
+
+
+#::TUPLES::
+#"TUPLES ARE LIKE LISTS BUT THEY ARE IMMUTABLE. THEY ARE INDEXED STARTING AT 0 AND THEY ALSO HAVE BUILT IN METHODS. THEY 
+# ARE DEFINED WITH () PARENTHESIS INSTEAD OF BRACKETS. WE CAN STORE ANY DATA WE WANT INSIDE. LENGTH IS FIXED WHICH MEANS YOU
+# CANNOT ADD OR TAKE AWAY FROM A TUPLE 
+# 
+# A tuple is a container for a fixed sequence of data objects. The name comes from the latin suffix for multiples. They are 
+#"sequences, just like lists. The difference is that they are immutable and they use parenthese. Creating a tuple is as simple as 
+# declaring different comma-separated values. Optionally you can put these values between parenthesis
+# 
+# EXAMPLE:"
+tuple_data = ('physics', 'chem', 2004, 2005)
+tuple_num = (1,2,3,4,5)
+tuple_letters = "a", "b", "c", "d"
+
+#A tuple can be used to group any number of items into a single compound value. Syntactically, tuple is a comma separated sequence of values."
+# although it is not necessary it is conventional to enclose tuples in parenthesis.
+# 
+# EXAMPLE"
+
+dog = ("canis familiaris", "dog", "carnivore", 12)
