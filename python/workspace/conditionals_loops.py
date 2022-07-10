@@ -129,14 +129,14 @@
 
 #Here is a for loops and a while loop
 #For loop:
-# for count in range(0,5):
-#     print("for looping =", count)
+for count in range(0,5):
+    print("for looping =", count)
 
-# #While loop:
-# count = 0
-# while count <= 5:
-#     print("while looping - ", count)
-#     count += 1
+#While loop:
+count = 0
+while count <= 5:
+    print("while looping - ", count)
+    count += 1
 
 #The basic syntax for a while loop loos like this: while<expression>:
 #do something, including progress towards making the expression False. Otherwise it will never exit.
@@ -188,7 +188,8 @@ y = 3
 while y > 0:
     print(y)
     y = y - 1
-    # if y == 0:
-    #     break
+    if y == 0:
+        break
 else:
     print("Final else statement")
+
