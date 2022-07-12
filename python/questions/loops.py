@@ -3,8 +3,7 @@
 
 for y in range(1,100):
         print(y)
-        if y % 4:
+        if y % 4 == 0:
             print("coding")
-        else:
-            y % 10: #not sure what I'm doing wrong here.
+        elif y % 10 == 0: #needed to at the == 0: because the % property just outputs the remainder not division so you need to include the == 0 so it gives the division.
             print("coding dojo")

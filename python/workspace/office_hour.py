@@ -40,7 +40,7 @@
 
 # print(create_dict('Ashley', 30, ))
 # print(create_dict(age=31))
-# print(create_dict('Ahley', 13))
+# print(create_dict('Ashley', 13))
 
 #data for next challenge
 
