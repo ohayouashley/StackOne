@@ -53,3 +53,8 @@ print(user_2.gold_card_points)
 
 user_1.display_info().enroll().spend_points(50).display_info()
 user_2.display_info().enroll().spend_points(80).display_info()
+
+# todo -do this fjdklafjdlkafda
+# ? How does this work?
+# ! Don't  for get this
+#* important information
