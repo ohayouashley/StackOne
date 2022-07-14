@@ -20,6 +20,8 @@ class User:
         print(f"gold card points {self.gold_card_points}")
         print('--------------------')
 
+        return self
+
     def enroll(self):    
         self.is_rewards_member = True
         self.gold_card_points = 100
@@ -42,13 +44,6 @@ print(user_1.is_rewards_member)
 print(user_1.gold_card_points)
 
 user_2 = User("Hermoine", "Granger", "hgranger@hogwarts.edu", 21)
-
-
-user_1.spend_points(50)
-user_1.enroll()
-
-user_2.spend_points(80)
-user_2.enroll()
 print(user_2.first_name)
 print(user_2.last_name)
 print(user_2.email)
@@ -56,5 +51,5 @@ print(user_2.age)
 print(user_2.is_rewards_member)
 print(user_2.gold_card_points)
 
-user_1.display_info()
-user_2.display_info()
+user_1.display_info().enroll().spend_points(50).display_info()
+user_2.display_info().enroll().spend_points(80).display_info()
