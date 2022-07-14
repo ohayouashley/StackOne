@@ -10,11 +10,11 @@
 #*attribute, they will now hve an attribute type BankAccount. To create this relationship we can update our User's __init__ method to something
 #* like this removing the account_balance attribute and addon an account attribute:
 
-class User:
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
-        self.account = BankAccount(int_rate=0.02, balance=0)
+# class User:
+#     def __init__(self, name, email):
+#         self.name = name
+#         self.email = email
+#         self.account = BankAccount(int_rate=0.02, balance=0)
         
 
 #* ::NOTE:: the bankaccount class should be in the same file as the User class so the reference
