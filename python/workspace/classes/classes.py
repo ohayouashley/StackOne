@@ -241,14 +241,14 @@
 
 class Plantstore:
     def __init__(self, genus, light, water, price):
-        self.genus = genus
-        self.light = light
-        self.water = water
+        self.genus = genus #?giving this a value that you can change
+        self.light = light#?attributes (qualities of plant store)
+        self.water = water#? similar to key value pairs (not the same)
         self.price = price
-
+#?^this fucntion is creating the instance (plant store)
     def plant_sale(self, percent_off):
-        self.price = self.price * (1 - percent_off)
-
+        self.price = self.price * (1 - percent_off) #?self = maranta or any instance that is calling this method
+#?this function is doing the math for us
 maranta_plant = Plantstore("maranta", "med light", "1/week", 8.99)
 
 philodendron_plant = Plantstore("philodendron", "bright indirect light", "1/week", 10.99)

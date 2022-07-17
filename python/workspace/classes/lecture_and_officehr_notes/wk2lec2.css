@@ -1,0 +1,22 @@
+h1, h2, h3 {
+    color: black;
+    font-weight: bold;
+    background-color: black;
+}
+
+.article, .ad, .phrase {
+    color: black;
+    font-weight: bold;
+    background-color: black;
+}
+
+.underline_centered {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.italic_blue {
+
+}
+
+/* ? Name things with purpose. because this font style is going to be italic blue, call it italic_blue.

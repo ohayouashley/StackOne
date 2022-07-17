@@ -20,7 +20,9 @@ class User:
         print(f"gold card points {self.gold_card_points}")
         print('--------------------')
 
-        return self
+        return self #?we return self here so that we can call upon other methods.
+        #?giving you something from the function. 
+        #?gives back where the function was called.
 
     def enroll(self):    
         self.is_rewards_member = True
@@ -28,7 +30,7 @@ class User:
 
         if self.is_rewards_member:
             print("User already a member")
-            return False    
+            return self   
 
     def spend_points(self,amount):
         self.gold_card_points= self.gold_card_points - amount
