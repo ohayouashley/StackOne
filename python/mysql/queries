@@ -1,0 +1,53 @@
+
+//! if you take your select away from the * and just put in what you're looking for 
+//! it will increase the speed of your search.
+//todo likes > our sequel should live inside the models folder in vscode. . If you need to make updatess you need to save it and forward engineer it AGAIN everytime.
+//todo make sure to work fresh with your database - save it inide of your project folder. Don't send exam without ERD 
+//todo if I don't have cascasde on delete then the user's likes and things won't delete with user and it needs to be deleted with user. 
+//todo hould we do this relationship should we do that for every table we make? Yes for what we're doing here yes. In what example do you not
+//todo want to delete. If an employee quits or gets fired would I want to delete that employee from my database? No. 
+//todo It's going to be on the mini side not the one side.
+//todo - exam: is there going to be an exam walk through? -> some assignments are going to be excellent prep -> may be new assignment that will be good for that too
+//todo - we will also build something that will be very similar to the exam.
+
+//*COMMANDS
+//*echo will write a file
+//* export PATH=${PATH}:/usr/local/mysql/bin
+//* export at the beginning makes the value available to programs that you run from the terminal
+//* PATH= sets the  value of the path variable
+//*${PATH} expand to the current value
+//*/usr/local/mysql/bi is the location of the mysql executable we just installed 
+//* >> will append to a file
+//* ~/.zshrc is a file that the terminal windown will look at for any commands to run.
+//* $$ will run another command 
+//* source ~/ .zshrc will execute the changes made and make them available in the terminal window
+
+//!CONNECT TO MYSQUL SHELL VIA TERMINAL: 
+//TODO run this command in the terminal and then enter whatever mysql pasword when prompted: mysql -uroot -p **your password is rootroot
+//todo then enter your mysql password, if you see the welcome to the MySQL monitor page you have successfully connected to the mysql server via terminal
+//todo type quit to the exit the shell. 
+
+//?CREATING A NEW FILE WITH MYSQL WORKBENCH
+//? Open mysql work bench
+//?1. file create new model
+//?2. click add diagram
+//?3. click on table (or cabinet) icon and then click on any space on the graph
+//?4. name the table
+//?5. create ID (all primary records you want to give it unique id that will auto increments AI select PK NN and AI )
+//?6. Choose the data type that you will need. VARCHAR - mean I"m going to store 255 characters
+//?7. now we'll add name varchar(255), email varchar(255), hobbies {longer than varchar} TEXT, descritpion TEXT, created_at DATETIME updated_at DATETIME
+//? ::NOTE:: created_at - because you want to know when the records were created | updated_at because you want to know when the content was last updated
+//*Every time customer wants to come in and place an order we want to capture that order information.
+//? 1. create another table
+//? 2. name it orders (always want to be plural with these)
+//?3. add another id INT PK NN AI > then add amount FLOAT, notes TEXT 
+//* you also need to store the customer ID. if you don't and you have many orders, you don't know who's the one that ordered it. 
+//?4. now we'll add the address VC, city name VC, state VC, zip INT, created at date time updated at dtaetime
+//*customer can have many orders so you want to add a schema. 
+//? So click on the 1 to many button the left side tool box and click on the orders first
+//?then click on customers. Now you have created the one to many relationship between these two tables.
+//*now under orders you'll see an orange diamond with a customers_id INT next to it.  You'll also see this in your orders table below
+//?move up the customer id (or any "foreign key") by right clicking and selecting MOVE UP until it's right underneath your id. 
+//! all foreign keys syntax should be singular_id
+//?
+
