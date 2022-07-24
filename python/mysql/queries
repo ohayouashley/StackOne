@@ -49,5 +49,141 @@
 //*now under orders you'll see an orange diamond with a customers_id INT next to it.  You'll also see this in your orders table below
 //?move up the customer id (or any "foreign key") by right clicking and selecting MOVE UP until it's right underneath your id. 
 //! all foreign keys syntax should be singular_id
-//?
+
+
+//todo In  addition to html and css that make up the view of a page and the backend
+//todo logic that dictates the functionality there there is also the database which takes care of your data
+//todo Databases are collections of organized information that can be easily accessed, managed and updated. Important note about database 
+//todo design is to organize your data to minimize repetions. The database is the backbone of your application and it's very important to 
+//todo understand how to properly orginize it to maximize efficiency and minimize data queries. 
+
+//? ERD - ENTITY RELATIONSHIP DIAGRAM 
+//todo ERDs are visual planes of how your database looks and behaves. ERD and SQL work together very intimately.
+//todo An ERD is a map of the structure of how we want to store our dta and SQL is the languate we use to manipulate the data according to the 
+//todo the relationships we define in our ERD. Learning the design of the database first will help s visualize what our relationnal databases will
+//todo look like which makes it easier to choose the actual SQl syntax.
+//? Why ERD at all?
+//todo ERD is a process of designing your tables and establishing relationships between them, making your data relational. Almost all imaginable data 
+//todo can be stored in a relational way, there really isn't anything you can't do usinga relational database like MySQL. Later, you will
+//todo lern non-relationsal databases where everything is stored in a single table. her eare advantages and disadvantages for both but we find that it is much
+//todo easier to move from a relational database to a non-relational database.
+
+//?Keep important info in your brain.
+
+//*Retrieval practice - bring knoledge to mind in order to enhance deep learning. Use a graphic organizer to keep track of programming concepts. 
+//*1. Database relations
+//*2 one to one
+//*3 one to many
+//* many to many
+//*Three (3) forms of normalization
+//*mySQL workbench
+//*4types of data
+
+//WHATS THE POINT?
+//?Using storage space effifciently.
+//?Another advantage that we obtain by normalizing our tables and establishing relationships between them. later we learn identifies arnd foreign keys serve as 
+//? the glue between our tables. With SQL we can manipulate our tables and create the custom table we need for the job in question.
+//?By dividing data into different tables we make each one good at one things. Store instances or rows of that data. If we separate our tables our database becomes more
+//? modular. This means that we can create our own custom tables depending on the task in question using SQL
+
+//! ONE TO ONE
+//? Although each customer can only have one address it would seem more fitting and better and organized if we separate out the address and put it in its own table. We 
+//?can keep better track of specifi information about a given address without the fear of our table getting too large to manage.
+//?id first_name last_name address_ id <- this is called a foreign key for addresses table. This is how we are able to join the addresses and customers together.
+
+//?Don't worry we'll continue to explore foreign keys throughout this chapter. 
+//?Since each address that we have can only belong to a single customer and each customer can onl have one address we call this a one to one relationship.
+
+//?::NOTE:: that the existence of a relationshi pcan be optional like having a customer record that has no related address record.
+
+//todoWHAT CAN WE DO WITH SQL
+//?We can combine two different tables. They can be gjoined together as long as there is a foreign key that references another table's id.
+
+//!EXAMPLES OF ONE ON ONE
+//?customers and credit cards
+//?User and email
+//?product and image
+
+//!ONE TO MANY
+//?Now we want our customers to be able to order items so we'll add an orders table. As each customer can have multiple orders, this will be a 
+//? one to many relationship.
+//! The foreign key and the id of the tbale that we want to combine act as the glue.
+//? WE CAN JOIN DIFFERENT TABLES USING SQL. ONCE AGAIN WE WILL LEARN HOW TO DO THIS LATER ON BUT IT IS IMPORTANT TO 
+//?KNOW THAT WE ARE SETING UP THESE RELATIONSHIPS SO THAT WE CAN CREATE CUSTOMIZED TABLES LIKE THE ILLUSTRATION BELOW BY USING SQL TO JOIN 
+//?different tables on the foreign key and the primary key.
+
+
+//!EXAMPLES OF ONE TO MANY
+//?messages and comments - message can have many comments
+//?states and cities - one city is only in one state but one state can have many cities
+//?customers and orders - one order onlly has one customer but one customer can have many orders
+//!primary key is like a SSN
+
+//!MANY TO MANY
+//?Now we need to create a way to keep track of the items they are ordering. 
+//?We can create an items table to hold the name and description of each item that the customer can order.
+//? Orders can have many items and items can have many orders so we call this a manh to many relationship.
+//? in a many to many relationship we create a connector table (also known as a joinder table) that has both the oter_id and the item_id so that we can dtermine all the items in a particular oder
+
+//! examples of many to many
+//? users and interests - one user can have many interests one interest can be applied to many users
+//?actors and movies - one movie can have many actors, one actor can be in many movies
+//?businesses and cities - one business can be spread accross many cities one city can be home to many businesses.
+
+//!NORMALIZATION
+//? Database normalization is a convention for splitting large tables of data into smaller separate tables with the goal being to not repeat data.
+//? It's important to make sure you are not over using them. 
+//*THREE RULES USING NORMALIZATION
+//todo FIRST FORM
+//? each column in your table can only have 1 value - you should not have an address column in your table that lists the address,city,state, and zip all separated by commas.
+//todo SECOND FORM 
+//?each column in your table that is not a key (primary or foreign) must have unique values.
+//?ex. if you have a movies table with a categories collumn you should not have a category listed more thano nce
+//todo THIRD FORM
+//? you cannot have a non-key column that is dependent on another non-key column
+//?ex. if you have a books table with columns publisher_name and publisher_address the publisher_address and publisher_name should be seaparated 
+//?into a separate table and liked to books with a foreign key. The publisher)address is dependent on the pulisher_anme and neither column is a key column.
+
+//!CONVENTIONS::
+//?ORM - OBJECT RELATIONAL MAPPERS - programs that other developers use to make database queries easier to read by providing handy functions.
+//?These fucntions will only work if we  have followed conventions that ORM author expects, which arae primarily absed on sset industry standards.
+//todo GUIDELINES::
+//? 1. make the table name pluaral and ALL lowercase - ex. users, leads, sites, clients, chapters, courses, modules.
+//? 2. use "id" as the primary key - name it id(also make it auto-incremented)
+//? 3. name foreign keys with singluar_table_name_id when referencing to a primary key in another table name is [singlular name of the table you're referring to]_id
+//? lead_id, side_id, _client_id etc..)
+//? 4 use created_at and updated_at as columns for the timestamp in EVERY table you create.
+
+//!DATA TYPES
+//?data types you will be using 95% of the times
+//todo SIMPLE DATA TYPES
+//*VARCHAR - used to store stirngs of characters as non-numeric values that can be up to 255 characters. WIll only use the space required for each record that is stored 
+//*in the database. ex. email, first_name, last_name.
+//*CHAR - also used to store character values - it will use up all the space for the set number of characters regardless of what value is added. ex. state_abbreviation
+//*INT - used to store integers.ex unique identifiers for each table. Good use for most normal number values like phone_number or zip_code.
+//* :: unassigned (positive numbers only)
+//* :: signed (positive and negative numbers -247483647 to same number postive.
+//* BIGINT - used for columns that would need to store huge number in most cases you wouldn't need it. Used for a facebook id when using faceboook's api since they have 
+//*a billion user Id's (unsinged and signed same as INT but much bigger scale)
+//*TINYINT - used for numbers that will be small such as user level identifier 0 -incactive user, 1- active user, 9-admin. (unsigned 0-255 signed -128-127)
+//*FLOAT - used or numbers with decimal points ex item_cost
+//*TEXT -  used to store large amount of text like descritpion, message, comment.
+//*DATETIME - used for time stamps like created_ at | updated_at
+//*date - used for storing general dats in format YYYY-MM-DD like a birthdate.
+
+//?What is an e commerce application?
+//todo  many relationships need three tables. ? one to many - one to many - many to many 
+//*table = buckets - same thign different names?
+
+//!mySQL WORKBENCH NOTES:
+//? 1. to create a new ERD open workbench and click on models tab and click plus
+//? 2. name schema and click rename preferences then add diagram.
+//*NN - not null means its required
+//?created_at | use default expression > NOW() function - automatically time stamps it
+//?updated_at use default expression NOW() ON UPDATE NOW() - auto time stamps at the time and stamps when it was updated
+//?  foreign key - you want in the many table
+//? 3. fill out information - 
+//todo HOW TO FORWARD ENGINEER -
+//? 1. click database tab on the menu then click forward engineer
+//? 2. click continue - look for any errors. If there are errors, close window, fix and repeat. Once complete - will say finished and you can refresh your workbench and see your model.
 

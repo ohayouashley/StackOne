@@ -1,0 +1,35 @@
+INSERT INTO dojos (name)
+VALUES ("Los Angeles"),("Seattle"),("remote");
+
+SET SQL_SAFE_UPDATES = 0; -- disengage safety
+DELETE FROM dojos;
+INSERT INTO dojos (name)
+VALUES ("Dubai"), ("Tokyo"),("Tulum");
+
+SELECT * FROM dojos;
+
+INSERT INTO ninjas (first_name,last_name,age,dojo_id)
+VALUES ("Harry", "Potter", 35, 1),("Hermoine", "Granger", 35,1),("Ronald", "Weasley", 35,1),
+		("Daphne", "Brimsley", 25, 2),("Simon", "Hattenborough", 30, 2),("Kathrine", "Shalsbey", 26,2),
+        ("Retsuko", "Yamada", 25, 3),("Haida", "Kawashima", 27, 3),("Fenneko", "Watanaka", 35,3);
+
+SELECT * FROM ninjas;
+
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 3;
+
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 1;
+
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 2;
+
+SELECT * FROM dojos -- gets the last instance from the id
+LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id
+	WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1); 
+
+SELECT * FROM dojos
+WHERE dojos.id = (SELECT dojo_id FROM ninjas ORDER BY dojo_id DESC LIMIT 1);

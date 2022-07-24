@@ -1,0 +1,247 @@
+sql
+
+::INTRODUCTION TO SQL QUERIES::
+
+SQL stands for STRUCTURED QUERY LANGUAGE. Which is a programming language designed for managing data in relational databases. 
+SQL statements (quieres) are used to perform tasks; they can SELECT data, SELECT data  WHERE some conditions are true, INSERT data,
+UPDATE data, DELETE data, and JOIN different tables together. 
+
+::DATABASE AND SQL::
+
+Just like our web servers, the MySQL server will be assigned a port number.
+
+::CONNECTING TO MYSQL SERVER::
+
+1. select wrench on workbench to test and configure your connections.
+        (Here you will notice the Hostname: 127.0.0.1 (the IP address for localhost), Port, and Username.
+        Here you can change the port number if your MySQL server is on a different port. Test the connection with the button at the bottom of this menu.)
+2. Click the test connection button - should get a successfully connected pop up.
+
+::IMPORTING STRUCTURE AND OR DATA::
+
+There are two main ways to import structure (tables and columns) or data (rows or records) or a combination of both into your MySQL workbench.
+If you have an SQL file you can just copy and paste the commands into the editor and click run. If you have an ERD diagram you can forward engineer into MySQL 
+workbench.
+
+**If file opens up your workbench and says "unconnected" it's because a new tab with the sql code is on it but it did not open it through your connected server.
+
+::SELECT::
+Use SELECT to select what you want to see from the tables. You're selecting the column from the table.
+EX:
+SELECT first_name
+FROM users;
+
+::SELECT W/ CONDITIONALS::
+Use SELECT FROM WHERE to make it even more specific. Selecting the column, id, and the table
+EX:
+SELECT first_name
+FROM users
+WHERE id = 2;
+
+**What query would you run to get the last names of users with id of 2 or 3?
+- SELECT last_name
+FROM users
+WHERE id = 2 OR id = 3;
+
+**Greater than 2?
+SELECT *
+FROM users
+WHERE id > 2;
+
+**less than or equal to 3?
+SELECT *
+FROM users
+WHERE id <= 3;
+
+**all users with first names ending in "e"?
+SELECT * 
+FROM users
+WHERE first_name LIKE "%e";
+
+**all users first names starting in "k"?
+SELECT * 
+FROM users
+WHERE first_name LIKE "K%";
+
+
+**all users first names not starting in "k"?
+SELECT * 
+FROM users
+WHERE first_name NOT LIKE "K%";
+
+::SELECT W/ SORTING::
+
+**query to get all users with youngers users at top of the table?
+SELECT *
+FROM users
+ORDER BY birthday DESC;
+
+** to get all users with older users at top of the table?
+SELECT *
+FROM users
+ORDER BY birthday ASC;
+
+**to get all users with first name ends in "e" with youngest users at top of the table?
+SELECT *
+FROM users
+WHERE first_name LIKE "%e"
+ORDER BY birthday DESC;
+
+**to get the name that ends in "land"
+SELECT name FROM world
+  WHERE name LIKE '%land'
+
+**to get the name that starts with c and ends with ia 
+SELECT name FROM world
+  WHERE name LIKE 'C%ia'
+
+**to get the name that has oo in the name:
+SELECT name FROM world
+  WHERE name LIKE '%oo%'
+
+**to get only first names of users in alphabetical order?
+SELECT first_name
+FROM users
+ORDER BY first_name;
+
+##The default for ORDER BY is ASC so we can leave that part of if we want the sorting to be ascending.
+
+SELECT W/ LIMIT AND OFFSET
+
+**query to run to get first 3 users?
+SELECT *
+FROM users
+LIMIT 3;
+
+**to get user records 3-5?
+SELECT *
+FROM users
+LIMIT 3
+OFFSET 2;
+
+**you could also combine limit and offset like this:
+SELECT *
+FROM users
+LIMIT 2,3;
+
+**WHERE - name = '----'
+**IN - allows us to check if an item is in a list.
+SELECT name, population FROM world
+ WHERE name IN ('Brazil', 'Russia', 'India', 'China')
+
+ **BETWEEN - allows range checking (range specified is inclusive of boundary values).
+EX:
+SELECT name, area FROM world
+  WHERE area BETWEEN 250000 AND 300000
+
+**Show names of the countries that have a population of at least 200 million (8 zeros)
+SELECT name FROM world
+WHERE population = 800000000
+
+**Find the country that has all the vowels and no spaces in its name.
+
+You can use the phrase name NOT LIKE '%a%' to exclude characters from your results.
+The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'
+SELECT name
+   FROM world
+WHERE name LIKE 'B%'
+  AND name NOT LIKE '%a%'
+
+
+::INSERT::
+
+Syntax to insert:
+INSERT INTO table_name (column_name1, column_name2) 
+VALUES('column1_value', 'column2_value');
+
+##make sure that you fill out all of the values, otherwise you'll receive an error.
+##you can also click directly into the database and make your edits there, just make sure all of the values are filled in, 
+then you must click apply.
+
+::UPDATE::
+
+UPDATING records:
+- the sql command pattern for updating/editing records is:
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+##if WHERE condition is not added to the UPDATE statement, the changes will be applied to every record in the table.
+
+::DELETE::
+
+You can delete your records with this syntax:
+DELETE FROM table_name WHERE condition;
+## if WHERE  condition is not added to the DELETE statement, it will delete all the records on the table.
+
+##If you receive an error regarding SQL SAFE UPDATES, run the following command to let MySQL workbench know that you know what you are doing and 
+you want to DELETE stuff from the database: SET SQL_SAFE_UPDATES = 0;
+
+::FUNCTIONS::
+
+Text Functions Data Types (VARCHAR, TEXT, CHAR etc.)
+
+Numeric Functions Data Types (INT, BIGINT, FLOAT etc.)
+
+Date and Time Functions Data Types (DATETIME)
+
+SELECT FUNCTION (column) FROM table_name
+
+1. CONCAT() - allows us to smash two values together
+ex: 
+SELECT CONCAT ('Mr.' ' ', first_name ' ', last_name) FROM clients:
+--Whatever we're selecting becomes the name of our column so you want it to look like this:
+SELECT CONCAT ('Mr.' ' ', first_name ' ', last_name) AS FULL_NAME FROM clients:
+
+2. LENGTH() - Want to find out the length of the characters
+SELECT LENGTH(last_name) as last_len FROM clients;
+--this will give you the length of characters of all the last names
+
+3. LOWER() - lowers the case of the characters ie. A to a 
+SELECT LOWER(first_name) AS first_lowercase FROM clients;
+
+4. HOUR() - parameter that is in a date time
+SELECT HOUR(joined_datetime) AS date.hour FROM clients;
+--gives hour within the 24hr format
+
+5. DAY() - 
+SELECT DAYNAME(joined_datetime) AS date.hour FROM clients;
+
+6. MONTH() -
+SELECT MONTH(joined_datetime) AS date.hour FROM clients;
+
+7. NOW() - gives time as of right now.
+SELECT NOW() AS right_now 
+-- used for created_at and updated_at 
+
+8. DATE_FORMAT() -
+SELECT DATE_FORMAT(joined_datetime, '%w %M %e, %Y') FROM clients  
+
+##use w3schools for functions - you don't need to memorize all of these just know what you want to do 
+
+::JOINING TABLES::
+
+Using foreign keys we can JOIN two tables on the ids that match each other. We can't JOIN tables together that don't have a relationship with each other.
+(ex. one to one, one to many, many to many). A foreign key in a table matches up directly with an id in another table. 
+
+**ONE TO ONE - relationship
+SELECT * FROM customers 
+JOIN addresses ON addresses.id = customers.address_id;
+
+**ONE TO MANY - relationship
+SELECT * FROM orders 
+JOIN customers ON customers.id = orders.customer_id;
+
+**MANY TO MANY - relationship
+SELECT * FROM orders 
+JOIN items_orders ON orders.id = items_orders.order_id 
+JOIN items ON items.id = items_orders.item_id;
+
+##These examples are using a JOIN (or inner join). There may be times where you would want to use a different type of join. 
+
+::GROUPING FUNCTIONS::
+AVG - the average of a value in a column
+COUNT - number of values in a column
+MAX - largest value in a column
+MIN - smallest value in a column
+SUM - sum of all values in a column
