@@ -1,0 +1,52 @@
+-- 1.
+SELECT countries.name as name, languages.language as language, languages.percentage as percentage FROM countries
+JOIN languages ON countries.id = languages.country_id
+WHERE languages.language = "Slovene"
+ORDER BY languages.percentage DESC;
+
+-- 2.
+SELECT countries.name as name, COUNT(cities.name) as cities
+FROM countries
+LEFT JOIN cities ON countries.id = cities.country_id
+GROUP BY countries.name
+ORDER BY cities DESC; 
+
+-- 3.
+SELECT name, population, country_id FROM cities
+WHERE cities.population > 500000
+AND cities.country_id = (SELECT id FROM countries WHERE countries.name = "Mexico")
+ORDER BY population DESC;
+
+-- 4.
+SELECT countries.name as name, languages.language as language, languages.percentage as percentage FROM countries
+JOIN languages ON countries.id = languages.country_id
+WHERE languages.percentage > 89
+ORDER BY languages.percentage DESC;
+
+-- 5. (First wrong, must add AND and only from countries so don't need to use dot notation to grab.
+-- SELECT countries.name as name, countries.surface_area as surface_area, countries.population as population FROM countries
+-- WHERE countries.surface_area < 501
+-- WHERE countries.poulation > 100000;
+
+SELECT name, surface_area, population FROM countries
+WHERE surface_area < 501
+AND population > 100000;
+
+-- 6. 
+SELECT name, government_form, capital, life_expectancy FROM countries
+WHERE government_form = "Constitutional Monarchy"
+AND capital > 200
+AND life_expectancy > 75;
+
+-- 7.
+SELECT countries.name AS country_name, cities.name AS city_name, cities.district, cities.population FROM countries
+JOIN cities ON countries.id = cities.country_id
+WHERE cities.district = "Buenos Aires"
+AND cities.population > 500000
+ORDER BY cities.population DESC;  
+
+-- 8. 
+SELECT countries.region, COUNT(countries.name) as countries
+FROM countries
+GROUP BY countries.region
+ORDER BY countries DESC;
