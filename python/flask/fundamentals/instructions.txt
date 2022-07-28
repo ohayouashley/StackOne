@@ -1,0 +1,68 @@
+::INSTALLING FLASK::
+1. On terminal run command
+    pip3 install pipenv
+2. On terminal install flask into a folder:
+    pipenv install flask
+        This will create two files in your folder
+        pipfile - displays packages involved
+        pipfile.lock - details on versions being used
+If you have issues using pipenv:
+    - ***NOTE*** If your receive an error using pipenv,
+      you may need to import it as a module first before it can be run as a script.
+      You can do so using the -m flag as below.
+      You will need to do this every time you use pipenv.
+      (Command below)
+      python3 -m pipenv <command to use>
+
+::ACTIVATING VIRTUAL ENIRONMENT::
+{Command}
+pipenv shell
+- this will open up the environment in order to use it
+-Folder should say (hello-flask) instead of computer name as usual in terminal.
+
+::DEACTIVATING VIRTUAL ENVIRONMENT::
+{COMMAND}
+exit
+
+- this will deactivate the environment so that you can continue to use normal commands.
+
+::IMPORTANT DISCLAIMER
+Do not create a virtual environment within another virtual environment. ::
+
+::BUILDING AN APP ON FLASK::
+Inside the "hello_flask" folder, create a file called server.py
+This will be our "server" file where we will set up all of our routes
+to handle requests.
+You'll want to create a new folder for each assignment moving forward.
+It will seem tedious at first,
+but as we add additional files to each project, we'll want to keep everything
+organized by assignment/project!
+
+
+::ROUTING::
+URL - broken up in two paarts
+1. base URL - google.com | espn.com 
+2. end points - everything that comes after slash is what we use to access nagivate to certain our functions in our server
+3. http - protocal that we use for our methods (GET POST PUT PATCH DELETE) - GIT | POST is what we'll learn in this course 
+
+
+:: @app.route('/success') 
+::  def success():
+:: return success
+
+PASSING IN VARIABLES TO THESE ROUTES. Eventually we'll need to pass in id's for a user in our database. 
+Path variables - what we pass through our routes
+@app.route('/hello'<name>) << the name variable is arbitrary - it can be called anything. 
+def hello(name): << defining our function and passing our parameter into our function   
+    return f"Hello {name}"
+
+Now in url type in /hello/adrien :: returns hello adrien on our page. ("Renders" that to our page)
+
+These path variables defaults to strings. What if we want to use numbers?
+Flask has built in converters for our variables. For string we can say whatever is put in this path it will
+be converted into string. 
+
+@app.route('/hello/<string:banana>/<int:num>')
+def hello(banana,num):
+    return f"Hello {hello * string}"
+    hello/Adrien/3 :: renders hello Adrien 3 times on our page. 
