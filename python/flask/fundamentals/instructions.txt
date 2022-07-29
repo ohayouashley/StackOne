@@ -66,3 +66,23 @@ be converted into string.
 def hello(banana,num):
     return f"Hello {hello * string}"
     hello/Adrien/3 :: renders hello Adrien 3 times on our page. 
+
+
+::RENDERING VIEWS::
+
+How to return HTML file instead of data type.
+
+Flask has templates - an html page that we can reuse over and over again. Templates allow us to write one html page and change the data.  
+
+::RENDER TEMPLATE IN FLASK::
+
+FROM FLASK IMPORT FLASK, RENDER_TEMPLATE
+
+app = Flask(__name__)
+
+Create folder called templates
+create index.htmlpipfile
+pipfile.lock
+server.py
+
+All of these are required by flask.

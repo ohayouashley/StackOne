@@ -1,0 +1,60 @@
+::INSTALLING FLASK::
+FIRST: Navigate to the folder you want your app to run flask in.
+1. On terminal run command
+    pip3 install pipenv
+2. On terminal install flask into a folder:
+    pipenv install flask
+        This will create two files in your folder
+        pipfile - displays packages involved
+        pipfile.lock - details on versions being used
+If you have issues using pipenv:
+    - ***NOTE*** If your receive an error using pipenv,
+      you may need to import it as a module first before it can be run as a script.
+      You can do so using the -m flag as below.
+      You will need to do this every time you use pipenv.
+      (Command below)
+      python3 -m pipenv <command to use>
+
+::ACTIVATING VIRTUAL ENIRONMENT::
+{Command}
+pipenv shell
+- this will open up the environment in order to use it
+-Folder should say (hello-flask) instead of computer name as usual in terminal.
+
+::DEACTIVATING VIRTUAL ENVIRONMENT::
+{COMMAND}
+exit
+
+- this will deactivate the environment so that you can continue to use normal commands.
+
+::IMPORTANT DISCLAIMER
+Do not create a virtual environment within another virtual environment. ::
+
+::BUILDING AN APP ON FLASK::
+Inside the "hello_flask" folder, create a file called server.py
+This will be our "server" file where we will set up all of our routes
+to handle requests.
+You'll want to create a new folder for each assignment moving forward.
+It will seem tedious at first,
+but as we add additional files to each project, we'll want to keep everything
+organized by assignment/project!
+
+
+::USE::
+
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+
+
+
+
+if __name__=="__main__":   
+    app.run(debug=True, port =5001)
+
+global machine - accessed from any where
+locally - from that folder or specific file path
+local machine - your physical computer
