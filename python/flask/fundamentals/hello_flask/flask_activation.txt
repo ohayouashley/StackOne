@@ -2,6 +2,7 @@
 FIRST: Navigate to the folder you want your app to run flask in.
 1. On terminal run command
     pip3 install pipenv
+    pipenv install
 2. On terminal install flask into a folder:
     pipenv install flask
         This will create two files in your folder
