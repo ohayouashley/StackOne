@@ -40,22 +40,27 @@ It will seem tedious at first,
 but as we add additional files to each project, we'll want to keep everything
 organized by assignment/project!
 
+::HOW TO UNINTALL FLASK::
+1. run pip uninstall flask
+
 
 ::USE::
 
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def function_name():
 
 
 
 
 
-if __name__=="__main__":   
+if __name__=="__main__":
     app.run(debug=True, port =5001)
 
+
+::NOTE::
 global machine - accessed from any where
 locally - from that folder or specific file path
 local machine - your physical computer
+
