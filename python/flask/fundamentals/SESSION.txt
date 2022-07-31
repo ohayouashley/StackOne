@@ -1,0 +1,30 @@
+::SESSION::
+
+- solve issue of not being able to pass request.form information.
+- cookies:
+    :can track user interaction with site
+    :who logged in
+
+Session: 
+    - tray where all routes can share 
+    - dictionary of key value pairs (like request.form) can be shared amongst all routes (POST,GET)
+    - must assign request.form to session
+    - transfer information:
+        * session['name'] = request.form['name']
+        * session['email'] = request.form['eamil']
+            -then in GET method we can access those
+    - Session is NOT secure - don't store passwords, cc info, etc. Just minmal things
+    - Just keeps track of users who are using our website. 
+    - If user information is not in Session we can kick them out to our login page 
+    so that it forces them to use the 'key' or password to be able to access our sites.
+
+HTTP request/response cycles are STATELESS. Means that each request/response cycle is 
+independent and ignorant of all other requests, before or after. Because we made a second request (by redirecting) after
+the client posted data in the form, the browser only knows about the second request we made. Because the form data 
+was apart of the first request the second request has no access to it. 
+
+- In order to fix this many sites use ::persistent data storage:: and one form of this is session.
+
+::STATE:: - data we can manage that outlives the process that generated it.
+- doesn't matter whether user is logged in, who user is, or what links user has viewed previously
+

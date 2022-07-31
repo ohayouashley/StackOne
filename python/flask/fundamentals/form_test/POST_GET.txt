@@ -1,0 +1,53 @@
+::POST DATA:: Client sending information to the server (filling out forms)
+- How to securely pass information to a server from the client side.
+
+We can use POST REQUESTS (POST data gets sent with it)
+- secure request made to the server
+- hides the data being sent to a server in a "body"
+ :we get it into the body using forms
+ :inputs inside forms is how we capture information into our server
+    *packages stuff makes post request sends to flask server
+    *Now we can access it in our server by using request.form
+
+-module that we need to import in our file. (Just another addition to first line of code)
+    :how to call it?
+        *form has attributes of name. ie name=name etc.. these are keys that we assign to this object
+        *when this gets sent to flask server it is turned into a tuple that we can access through values
+        *must have good naming convention because we'll access it that way
+        *NEVER render a template in a POST request
+            : in this function never return render_template (repercussions: if client hits request it could recharge credit card)
+
+::action attribute::
+ - this is the route that will process the form (not the one that dhoes the form thats "/")
+
+ ::method attribute::
+ - our options are GET and POST (want this to be a POST req (default is GET))
+
+ ::input elements::
+ - parts of form that gather data from user. 
+ - options:
+ https://www.w3schools.com/tags/att_input_type.asp
+
+ -other options (drop downs | text area)
+ https://www.w3schools.com/html/html_form_elements.asp
+
+ ::submission::
+ - can be a <input type='submit'> or <button>submit</button> 
+ - NOT <input type="button">
+
+ ::specifying allowed methods: methods=['POST']
+ - if we don't provide a value for method, only GET requests are allowed.
+ - notice it is a list which means it's possible to provide more than one value
+
+ ::accessing data: request.form['name_of_input']
+ - the name we gave to each HTML input was significant. 
+ - Server-side we access data that was input in a field from a user through request.form dictionary
+ by providing name of the input as the key.
+
+ ::NOTE::
+ - the tpe of anything that comes in through request.form will be a string no matter what.
+ - if you want that value to be identified as a number you'll need to type cast it.
+
+ 
+
+

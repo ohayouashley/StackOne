@@ -1,0 +1,9 @@
+::REDIRECTING::
+
+- Can't render on a POST. Doing that will duplicate your data in your application
+- how do we navigate? We redirect within our servers by using a method called 
+redirect that we can use as a function.
+
+- redirecting is when we perform a GET request on teh clients behalf. This will now be the 
+request that is completed should the client refresh the page.
+
