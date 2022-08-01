@@ -1,0 +1,25 @@
+.container {
+	/* display: flex;
+	flex-direction: row;
+	align-items: center; */
+	background-color: slategrey;
+	color: white;
+	width: 300px;
+	height: 500px;
+	margin: 20px;
+	padding: 20px;
+	border-radius: 15px 15px 15px 15px;
+	font-size: 1em;
+}
+
+h2 {
+	color: black;
+}
+
+p {
+	font-size: 20px;
+}
+
+option {
+	font-size: 20px;
+}
