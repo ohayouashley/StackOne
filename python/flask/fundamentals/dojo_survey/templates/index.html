@@ -23,7 +23,7 @@
 	</head>
         
 	<body>
-        <form action="/result" method="post">
+        <form action="/result" method="post" class="p-5 rounded col-6 mx-auto">
 		<h2>Dojo Survey<h2>
 		<div class="container">
 			<div class="mb-3">
@@ -64,9 +64,10 @@
 				</option>
 				<option><a class="dropdown-item">Python</a></option>
 			</select>
-            <label for="comments">Comments:</label>
+            <span>
+            <label for="comments" class="comment">Comments:</label>
             <textarea name="comments" id="comments"></textarea>
-
+            </span>
             <button type="submit">Submit</button>
 		</div>
         <!-- </form> -->
