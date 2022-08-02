@@ -8,13 +8,13 @@ app.secret_key="keep it safe,keep it secret"
 def index():
     return render_template('index.html')
 
-@app.route('/result',methods=['POST'])
+@app.route('/result',methods=['POST']) 
 def result(): 
-    print("I got here 1")
+    print("------TEST------")
     print(request.form.to_dict())
-    print("I got here 2")
+    print("------TEST------") 
     pprint.pprint(request.form)
-    session['name'] = request.form['name']
+    session['name'] = request.form['name'] #dictionary 
     session['location'] = request.form['location']
     session['language'] = request.form['language']
     session['comments'] = request.form['comments']
@@ -29,5 +29,5 @@ if __name__=="__main__":
     app.run(debug=True, port =5001)
 #return render template
 #render template - new html page
-#included id in dojo dictionary? now
+
 

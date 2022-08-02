@@ -1,0 +1,9 @@
+::ERROR CODES::
+
+Error code 1064
+
+Error code 1146 x2
+
+Error code 1292
+
+Error code 1054
