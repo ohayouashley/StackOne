@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Users</title>
+	</head>
+	<body>
+		<h1>All Users</h1>
+
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Created at</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--! wrap jinja around what you want repeated-->
+				<!--! for x (user - good convention to use singular of list name) in list (list name is data you are passing in from your back end.)-->
+				{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.first_name }}</td>
+					<td>{{ user.last_name }}</td>
+					<td>{{ user.created_at }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<a href="/users/new">Add a new user</a>
+	</body>
+</html>

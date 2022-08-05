@@ -1,0 +1,19 @@
+With our SELECT * FROM friends statement, we are just asking for the everything from the database.
+However we will often what to provide variable data would be terrible to hard-code into the query. 
+IE:
+
+- SELECT * FROM friends WHERE id=1
+- UPDATE friends Set FIRST_NAME = "bryanna" WHERE id=9
+
+Whenever we run a query that includes variables we should use a prepared statement rather than a string interpolation. Use the following pattern 
+instead of f-strings or string concatenation. We'll need a string variable for the query and then a dictionary for the values to be used in the
+string. When we call on the database connection to execute the query, we will pass both the query and the dictionary:
+EX:
+
+query = "UPDATE friends SET first_name=%(fn)s WHERE id=%(id_num)s;"
+data = {f sint and gile is l execute . 
+    "fn": 
+    "id_num"
+
+    fla
+}

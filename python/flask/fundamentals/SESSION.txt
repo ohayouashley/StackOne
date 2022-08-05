@@ -28,3 +28,14 @@ was apart of the first request the second request has no access to it.
 ::STATE:: - data we can manage that outlives the process that generated it.
 - doesn't matter whether user is logged in, who user is, or what links user has viewed previously
 
+::COOKIES:: 
+- Some frameworks (including Flask) uses cookies to store session data. Flask uses secure hashing of ddata to send a 
+packet of information from server to client. The packet is known as a cookie. Once a client's browser 
+has received this cookie, it writes the information contained in it to a small file on their hard drive.
+- While hashed cookies are not incredibly secure so don't save anything private in them.
+
+::SETTING UP SESSION IN FLASK::
+1. import session:
+from flask import Flask, render_template, request, redirect, session
+
+2. need to give our app a secret key:

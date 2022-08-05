@@ -14,7 +14,7 @@ class Friend:
     def get_all(cls):
         query = "SELECT * FROM friends;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL('first_flask').query_db(query)#!if you can't connect to your databse your name may be wrong.
+        results = connectToMySQL('first_flask').query_db(query)#!if you can't connect to your database your name may be wrong.
         # Create an empty list to append our instances of friends
         friends = []
 # Iterate over the db results and create instances of friends with cls.

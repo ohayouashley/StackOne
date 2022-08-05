@@ -18,7 +18,7 @@ We can use POST REQUESTS (POST data gets sent with it)
             : in this function never return render_template (repercussions: if client hits request it could recharge credit card)
 
 ::action attribute::
- - this is the route that will process the form (not the one that dhoes the form thats "/")
+ - this is the route that will process the form (not the one that does the form thats "/")
 
  ::method attribute::
  - our options are GET and POST (want this to be a POST req (default is GET))
@@ -48,6 +48,13 @@ We can use POST REQUESTS (POST data gets sent with it)
  - the tpe of anything that comes in through request.form will be a string no matter what.
  - if you want that value to be identified as a number you'll need to type cast it.
 
- 
 
+::REDIRECTING::
+
+- Can't render on a POST. Doing that will duplicate your data in your application
+- how do we navigate? We redirect within our servers by using a method called 
+redirect that we can use as a function.
+
+- redirecting is when we perform a GET request on teh clients behalf. This will now be the 
+request that is completed should the client refresh the page.
 
