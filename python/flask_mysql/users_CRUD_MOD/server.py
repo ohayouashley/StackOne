@@ -7,7 +7,7 @@ app.secret_key="keep it safe"
 @app.route('/')
 def index():
     users = User.get_all() 
-    return render_template('index.html', users = users)
+    return render_template('index.html', users = users)#! tied to the for loop 'users'
 
 @app.route('/users/new') #! first step show user form (post route next)
 def user_form():

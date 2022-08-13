@@ -10,8 +10,9 @@ class User: #!capital letters identify classes - file typically matches the clas
         self.email = data['email']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+#? Class = record data of user. 2. CRUD (below) - this is why should be broken up into separate classes. (SIDEBAR)
         # Now we use class methods to query our database
-    @classmethod #!gives us access to the cls in get_all method. | cls like self allows 
+    @classmethod #!gives us access to the cls in get_all method. | cls like self allows ###methods - not classes.
     def get_all(cls): #! needs to have cls with @classmethod | direct reference to User
         query = "SELECT * FROM users;" #!will always return a list if it works
         # make sure to call the connectToMySQL function with the schema you are targeting.
@@ -30,3 +31,5 @@ class User: #!capital letters identify classes - file typically matches the clas
 
         id = connectToMySQL(db).query_db(query, data) #!when you have a %()s you need data argument
         return id
+
+        #?asking for new person what info do I want to save on them
