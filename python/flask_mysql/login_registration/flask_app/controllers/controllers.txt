@@ -1,0 +1,2 @@
+Controllers folder should contain whatever we are controlling in a pluralization form.
+All of your @app.route functions should be in the controller files

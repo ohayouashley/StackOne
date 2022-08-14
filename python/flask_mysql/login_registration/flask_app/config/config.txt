@@ -1,0 +1,2 @@
+Folder should contain your mysqlconnection file to connect mysql to your project
+Boiler plate
