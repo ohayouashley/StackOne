@@ -51,7 +51,7 @@ class Recipe:
                 'created_at' : row['users.created_at'],
                 'updated_at' : row['users.updated_at']
             }    
-            this_recipe.creator = user.User(user_dict)
+            this_recipe.user = user.User(user_dict)
             recipes.append(this_recipe)
         return recipes
 

@@ -59,20 +59,52 @@ def edit_recipe(id):
         'id' : id
     }
     this_recipe = recipe.Recipe.get_one(recipe_data)
-    # if(recipe.user_id != user.id):
-    #     flash('Unauthorized access to edit recipe with id {id}')
-    #     return redirect('/dashboard')
+    if(this_recipe.user_id != this_user.id):
+        flash(f'Unauthorized access to edit recipe with id {id}')
+        return redirect('/dashboard')
 
     return render_template('edit.html', user = this_user, recipes = this_recipe) 
+
+
+@app.route('/recipes/<int:id>/edit', methods=['POST'])
+def submit_edit(id):
+    user_dict = {
+        'id' : session['user_id']
+    }
+    this_user = user.User.get_user_by_id(user_dict)
+    recipe_data = {
+        'id' : id
+    }
+    this_recipe = recipe.Recipe.get_one(recipe_data)
+    if(this_recipe.user_id != this_user.id):
+        flash(f'Unauthorized access to edit recipe with id {id}')
+        return redirect('/dashboard')
+    recipe.Recipe.update(request.form)
+    # return redirect('/dashboard')
+    return redirect(f'/recipes/{id}') #!sends us specifically to show route. redirects to show 1 page or back to "recipes" page
+
 
 @app.route('/recipes/<int:id>/delete')
 def delete(id):
     recipe_data = {
     'id' : id
 }
-    recipe = recipe.Recipe.get_one(recipe_data)
-    # if(recipe.user_id !=session['user_id']):
-    #     flash('Unauthorized access to edit review with id {id}')
-    #     return redirect('/dashboard')
+    this_recipe = recipe.Recipe.get_one(recipe_data)
+    if(this_recipe.user_id !=session['user_id']):
+        flash(f'Unauthorized access to edit review with id {id}')
+        return redirect('/dashboard')
     Recipe.delete(recipe_data)
-    return redirect('/dashboard')
+    return redirect('/recipes')
+
+@app.route('/recipes/<int:id>')
+def show(id):
+    recipe_data = {
+        'id' : id
+    }
+    user_dict = {
+        'id' : session['user_id']
+    }
+    this_recipe = recipe.Recipe.get_one(recipe_data)
+    this_user = user.User.get_user_by_id(user_dict)
+
+    return render_template('show.html', user = this_user, recipes = this_recipe) 

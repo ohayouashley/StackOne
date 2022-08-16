@@ -4,6 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+			crossorigin="anonymous"
+		/>
 		<title>Edit Recipe</title>
 	</head>
 	<body>
@@ -21,11 +27,16 @@
 			<a href="/recipes">Back to recipes</a>
 			<a href="/logout"><button>Logout</button></a>
 		</div>
-		<form action="recipes/<int:id>/edit" method="POST">
+		<form action="/recipes/{{ recipes.id }}/edit" method="POST">
 			<div class="mb-3 col-5 p-4 bg-light text-dark">
 				<div class="form-group">
 					<label for="name">Name:</label>
-					<input type="text" name="name" class="form-control" />
+					<input
+						type="text"
+						name="name"
+						value="{{ recipes.name }}"
+						class="form-control"
+					/>
 				</div>
 				<div class="mb-3">
 					<label for="description" class="form-label">Description</label>
@@ -34,7 +45,9 @@
 						class="form-control"
 						id="description"
 						rows="3"
-					></textarea>
+					>
+{{ recipes.description }}</textarea
+					>
 				</div>
 				<div class="mb-3">
 					<label for="instructions" class="form-label">Instructions</label>
@@ -43,7 +56,9 @@
 						class="form-control"
 						id="instructions"
 						rows="3"
-					></textarea>
+					>
+{{ recipes.instructions }}</textarea
+					>
 				</div>
 
 				<div class="mb-3 col-5 p-4 bg-light text-dark">
@@ -54,6 +69,7 @@
 							class="form-control"
 							id="date"
 							name="date"
+							value="{{recipes.date.strftime('%Y-%m-%d')}}"
 							placeholder="MM/DD/YYY"
 							type="date"
 						/>
@@ -62,27 +78,21 @@
 
 				<div class="form-check">
 					<p>Under 30 minutes?</p>
-					<input
-						class="form-check-input"
-						type="radio"
-						name="under30"
-						id="under30"
-					/>
+					<input class="form-check-input" type="radio" name="under30"
+					id="under30" value="1"{% if recipes.under30 ==1 %} checked {% endif
+					%}" />
 					<label class="form-check-label" for="under30"> Yes </label>
 				</div>
 				<div class="form-check">
-					<input
-						class="form-check-input"
-						type="radio"
-						name="under30"
-						id="under30"
-						checked
-					/>
+					<input class="form-check-input" type="radio" name="under30"
+					id="under30" value="0"{% if recipes.under30 ==0 %} checked {% endif
+					%}" checked />
 					<!--!IDs must be the same for radio button-->
 					<label class="form-check-label" for="flexRadioDefault2"> No </label>
 				</div>
 			</div>
 			<button>Submit</button>
+			<input type="hidden" value="{{ recipes.id }}" name="id" />
 		</form>
 	</body>
 </html>
